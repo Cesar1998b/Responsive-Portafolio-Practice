@@ -51,9 +51,9 @@ skillsHeader.forEach((el) =>{
 const tabs = document.querySelectorAll('[data-target]'),
       tabContents = document.querySelectorAll('[data-content]')
 
-      if(tabs){
-          console.log('Si')
-      }
+    //   if(tabs){
+    //       console.log('Si')
+    //   }
 
 tabs.forEach(tab =>{
     tab.addEventListener('click', () =>{
@@ -68,5 +68,27 @@ tabs.forEach(tab =>{
             tab.classList.remove('qualification__active')
         })
         tab.classList.add('qualification__active')
+    })
+})
+
+const modalV = document.querySelectorAll('.services__modal'),
+      modalBtns = document.querySelectorAll('.services__button'),
+      modalCloses = document.querySelectorAll('.services__modal-close')
+
+let modal = function(modalClick){
+    modalV[modalClick].classList.add('active-modal')
+}
+
+modalBtns.forEach((modalBtn, i)=>{
+    modalBtn.addEventListener('click', ()=>{
+       modal(i) 
+    })    
+})
+
+modalCloses.forEach((modalClose)=>{
+    modalClose.addEventListener('click', ()=>{
+        modalV.forEach((modalView)=>{
+            modalView.classList.remove('active-modal')
+        })
     })
 })
